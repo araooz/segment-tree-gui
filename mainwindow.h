@@ -27,7 +27,6 @@ private:
     QSpinBox* valSpinBox;
     QSpinBox* leftSpinBox;
     QSpinBox* rightSpinBox;
-    QSpinBox* addValueSpinBox;
 
     void updateDisplay() {
         treeWidget->setTree(segTree->getTree(), segTree->getOriginalSize());
@@ -122,13 +121,6 @@ private slots:
         }
     }
 
-    void onAddValue() {
-        int val = addValueSpinBox->value();
-        segTree->push_back(val);
-        resultLabel->setText(QString("Añadido valor %1 al final del array").arg(val));
-        updateDisplay();
-    }
-
 public:
     MainWindow(QWidget* parent = nullptr) : QMainWindow(parent) {
         // Inicializar con array por defecto
@@ -167,20 +159,6 @@ public:
         connect(initBtn, &QPushButton::clicked, this, &MainWindow::onInitArray);
         initLayout->addWidget(initBtn);
         controlLayout->addLayout(initLayout);
-
-        // Añadir valor
-        QHBoxLayout* addLayout = new QHBoxLayout();
-        addLayout->addWidget(new QLabel("Añadir valor al final:", this));
-        addValueSpinBox = new QSpinBox(this);
-        addValueSpinBox->setMinimum(-1000);
-        addValueSpinBox->setMaximum(1000);
-        addValueSpinBox->setValue(0);
-        addLayout->addWidget(addValueSpinBox);
-        QPushButton* addBtn = new QPushButton("Añadir", this);
-        addBtn->setStyleSheet("background-color: #4CAF50; color: white; font-weight: bold;");
-        connect(addBtn, &QPushButton::clicked, this, &MainWindow::onAddValue);
-        addLayout->addWidget(addBtn);
-        controlLayout->addLayout(addLayout);
 
         // Separador
         QFrame* line1 = new QFrame();

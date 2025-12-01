@@ -122,22 +122,6 @@ public:
         }
     }
 
-    // Añadir nuevo valor al final
-    void push_back(T val) {
-        original_array.push_back(val);
-        rebuild();
-    }
-
-    // Reconstruir el árbol
-    void rebuild() {
-        size_og = original_array.size();
-        size = 1;
-        while (size < original_array.size()) size *= 2;
-        tree.clear();
-        tree.resize(2*size - 1, DEFAULT);
-        build(original_array, 0, 0, size_og - 1);
-    }
-
     const vector<treetype>& getTree() const { return tree; }
     int getOriginalSize() const { return size_og; }
     const vector<T>& getOriginalArray() const { return original_array; }
