@@ -1,0 +1,55 @@
+# Ejecutables compilados
+SegmentTreeViewer
+*.exe
+*.app
+*.out
+
+# Archivos objeto y compilados
+*.o
+*.obj
+*.so
+*.dylib
+*.a
+
+# Archivos generados por Qt
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+*.moc
+
+# Archivos generados por qmake
+Makefile
+Makefile.*
+*.pro.user
+*.pro.user.*
+
+# Directorios de build
+build/
+build-*/
+debug/
+release/
+Debug/
+Release/
+
+# Archivos de Qt Creator
+*.autosave
+*.user
+*.user.*
+
+# Carpetas de IDEs
+.vscode/
+.idea/
+*.cbp
+*.layout
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# Caché y logs
+*.log
+.cache/
